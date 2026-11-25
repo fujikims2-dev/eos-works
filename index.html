@@ -414,6 +414,22 @@
       }
       .field textarea { resize: vertical; }
       .field input:focus, .field textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+      .pw-wrap { position: relative; }
+      .pw-wrap input { padding-right: 50px; }
+      .pw-toggle {
+        position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+        width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+        border: 0; background: transparent; color: var(--muted); border-radius: 10px;
+        cursor: pointer; padding: 0; font-family: inherit;
+      }
+      .pw-toggle:hover { color: var(--accent); background: var(--surface-2); }
+      .pw-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+      .pw-toggle svg { width: 22px; height: 22px; flex: none; display: block; }
+      .pw-toggle .icon-eye-off { display: none; }
+      .pw-toggle.is-visible .icon-eye { display: none; }
+      .pw-toggle.is-visible .icon-eye-off { display: block; }
+      .pw-rule { margin: 8px 0 0; font-size: 13.5px; line-height: 1.55; color: var(--muted); }
+      .pw-rule[hidden] { display: none; }
       .form-msg { font-size: 14px; font-weight: 600; line-height: 1.55; margin: 0 0 14px; padding: 11px 14px; border-radius: 10px; background: var(--accent-soft); color: var(--accent-strong); }
       .form-msg.err { background: #fbeae8; color: #a02c22; }
       @media (prefers-color-scheme: dark) { .form-msg.err { background: #2a1512; color: #f0a49c; } }
@@ -1225,7 +1241,14 @@
           </div>
           <div class="field">
             <label for="authPw" data-ko="비밀번호" data-en="Password">비밀번호</label>
-            <input id="authPw" type="password" autocomplete="current-password" />
+            <div class="pw-wrap">
+              <input id="authPw" type="password" autocomplete="current-password" aria-describedby="pwRule" />
+              <button class="pw-toggle" id="pwToggle" type="button" aria-label="비밀번호 보기" aria-pressed="false">
+                <svg class="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <svg class="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l18 18"/><path d="M10.58 5.08A9.95 9.95 0 0 1 12 5c6.5 0 10 7 10 7a17.4 17.4 0 0 1-2.9 3.19M6.61 6.61A16.7 16.7 0 0 0 2 12s3.5 7 10 7a9.9 9.9 0 0 0 5.39-1.61"/><path d="M9.88 9.88a3 3 0 0 0 4.24 4.24"/></svg>
+              </button>
+            </div>
+            <p class="pw-rule" id="pwRule" data-ko="비밀번호는 6자 이상으로 정해주세요." data-en="Use at least 6 characters for your password." hidden>비밀번호는 6자 이상으로 정해주세요.</p>
           </div>
           <p class="form-msg" id="authMsg" hidden></p>
           <button class="btn btn-solid auth-submit" id="authSubmit" type="submit" data-ko="로그인" data-en="Log in">로그인</button>
@@ -1407,6 +1430,12 @@ var EP_DATA = {"1": {"sum_ko": "수천 명의 지원자가 인류 최초의 타�
             signupDone: "가입이 완료되었습니다. 이메일 확인이 필요하면 메일함을 확인해 주세요.",
             loginFail: "로그인에 실패했습니다. 이메일과 비밀번호를 확인해 주세요.",
             signupFail: "가입에 실패했습니다. 이미 가입된 이메일이거나 비밀번호가 너무 짧을 수 있습니다.",
+            errRateLimit: "인증 메일 발송이 잠시 몰려 있어요. 한 시간쯤 뒤에 다시 시도해주세요.",
+            errAlready: "이미 가입된 이메일이에요. 로그인해 주세요.",
+            errPwShort: "비밀번호는 6자 이상이어야 해요.",
+            errInvalidLogin: "이메일이나 비밀번호가 맞지 않아요.",
+            pwShow: "비밀번호 보기",
+            pwHide: "비밀번호 숨기기",
             withdrawAsk: "정말 탈퇴하시겠습니까? 작성한 질문은 남지만 계정은 삭제됩니다.",
             withdrawPending: "회원탈퇴는 슈퍼베이스에 탈퇴 함수(delete_current_user)를 만든 뒤 활성화됩니다.",
             withdrawDone: "탈퇴가 완료되었습니다.",
@@ -1443,6 +1472,12 @@ var EP_DATA = {"1": {"sum_ko": "수천 명의 지원자가 인류 최초의 타�
             signupDone: "Sign-up complete. If email confirmation is required, please check your inbox.",
             loginFail: "Log-in failed. Please check your email and password.",
             signupFail: "Sign-up failed. The email may already be registered, or the password may be too short.",
+            errRateLimit: "Too many confirmation emails were sent. Please try again in about an hour.",
+            errAlready: "This email is already registered. Please log in.",
+            errPwShort: "Password must be at least 6 characters.",
+            errInvalidLogin: "Email or password is incorrect.",
+            pwShow: "Show password",
+            pwHide: "Hide password",
             withdrawAsk: "Delete your account? Your questions will remain, but the account will be removed.",
             withdrawPending: "Account deletion activates once the delete_current_user function is created in Supabase.",
             withdrawDone: "Your account has been deleted.",
@@ -1514,15 +1549,55 @@ var EP_DATA = {"1": {"sum_ko": "수천 명의 지원자가 인류 최초의 타�
             authBtn.textContent = t("login");
           }
         }
+        var authPwEl = document.getElementById("authPw");
+        var pwToggle = document.getElementById("pwToggle");
+        var pwRule = document.getElementById("pwRule");
+        function refreshPwToggleLabel() {
+          if (!pwToggle || !authPwEl) return;
+          var visible = authPwEl.type === "text";
+          pwToggle.setAttribute("aria-label", visible ? t("pwHide") : t("pwShow"));
+          pwToggle.setAttribute("aria-pressed", visible ? "true" : "false");
+          pwToggle.classList.toggle("is-visible", visible);
+        }
+        function setPwVisible(visible) {
+          if (!authPwEl) return;
+          authPwEl.type = visible ? "text" : "password";
+          refreshPwToggleLabel();
+        }
+        if (pwToggle && authPwEl) {
+          pwToggle.addEventListener("click", function () {
+            setPwVisible(authPwEl.type === "password");
+            authPwEl.focus({ preventScroll: true });
+          });
+          refreshPwToggleLabel();
+          if (window.MutationObserver) {
+            new MutationObserver(function () { refreshPwToggleLabel(); }).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
+          }
+        }
+        function authErrorMessage(err, fallbackKey) {
+          var raw = "";
+          if (err) {
+            raw = [err.message, err.error_description, err.msg, err.code, err.name, err.status].filter(Boolean).join(" ");
+            if (!raw) raw = String(err);
+          }
+          var lower = raw.toLowerCase();
+          if (lower.indexOf("rate limit") !== -1 || lower.indexOf("rate_limit") !== -1 || lower.indexOf("over_email_send_rate_limit") !== -1) return t("errRateLimit");
+          if (lower.indexOf("already registered") !== -1 || lower.indexOf("already been registered") !== -1 || lower.indexOf("user already") !== -1) return t("errAlready");
+          if (lower.indexOf("invalid login credentials") !== -1) return t("errInvalidLogin");
+          if (lower.indexOf("password") !== -1 && (lower.indexOf("short") !== -1 || lower.indexOf("6") !== -1 || lower.indexOf("at least") !== -1 || lower.indexOf("weak") !== -1 || lower.indexOf("length") !== -1)) return t("errPwShort");
+          return t(fallbackKey);
+        }
         function setMode(m) {
           mode = m;
           var isLogin = m === "login";
           tabLogin.classList.toggle("on", isLogin);
           tabSignup.classList.toggle("on", !isLogin);
           nameField.hidden = isLogin;
+          if (pwRule) pwRule.hidden = isLogin;
           authTitle.textContent = isLogin ? t("login") : t("signup");
           authSubmit.textContent = isLogin ? t("login") : t("signup");
           document.getElementById("authPw").setAttribute("autocomplete", isLogin ? "current-password" : "new-password");
+          setPwVisible(false);
           showMsg(authMsg, "");
         }
         function openAuth(m) {
@@ -1535,6 +1610,7 @@ var EP_DATA = {"1": {"sum_ko": "수천 명의 지원자가 인류 최초의 타�
         function closeAuth() {
           authModal.hidden = true;
           document.body.style.overflow = "";
+          setPwVisible(false);
         }
 
         authBtn.addEventListener("click", function () {
@@ -1563,19 +1639,20 @@ var EP_DATA = {"1": {"sum_ko": "수천 명의 지원자가 인류 최초의 타�
           var pw = document.getElementById("authPw").value;
           var name = document.getElementById("authName").value.trim();
           if (!email || !pw) { showMsg(authMsg, t("fillAll"), true); return; }
+          if (mode === "signup" && pw.length < 6) { showMsg(authMsg, t("errPwShort"), true); return; }
           if (!connected) { showMsg(authMsg, t("notConnected"), true); return; }
           authSubmit.disabled = true;
           if (mode === "signup") {
             sb.auth.signUp({ email: email, password: pw, options: { data: { name: name, display_name: name } } }).then(function (res) {
               authSubmit.disabled = false;
-              if (res.error) { showMsg(authMsg, t("signupFail"), true); return; }
+              if (res.error) { showMsg(authMsg, authErrorMessage(res.error, "signupFail"), true); return; }
               // 프로필 행은 DB 트리거가 메타데이터의 display_name을 읽어 자동 생성한다.
               showMsg(authMsg, t("signupDone"));
             });
           } else {
             sb.auth.signInWithPassword({ email: email, password: pw }).then(function (res) {
               authSubmit.disabled = false;
-              if (res.error) { showMsg(authMsg, t("loginFail"), true); return; }
+              if (res.error) { showMsg(authMsg, authErrorMessage(res.error, "loginFail"), true); return; }
               closeAuth();
             });
           }
