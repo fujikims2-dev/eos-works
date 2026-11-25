@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>김상훈 이력서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Serif+KR:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1f4e79; --navy2:#163a5c; --navy-soft:#eaf1f7; --ink:#17202b; --muted:#5b6b7d; --line:#dbe3ec;
+    --bg:#f4f6f8; --card:#ffffff; --card2:#f8fafc; --accent:#2e75b6;
+    --shadow:0 1px 2px rgba(23,32,43,.04), 0 8px 28px rgba(23,32,43,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --navy:#7db3e2; --navy2:#a8cdec; --navy-soft:#1b2c3f; --ink:#eef2f6; --muted:#a9b7c6; --line:#2c3e52; --bg:#0f1720; --card:#162231; --card2:#1a2a3d; --accent:#5b9bd5; --shadow:none; }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--navy);text-decoration:none}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 18px 56px}
+  /* header */
+  .hero{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:38px 36px 30px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:linear-gradient(90deg,var(--navy),var(--accent))}
+  .hero-top{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start}
+  .name{font-size:42px;font-weight:900;letter-spacing:.18em;line-height:1.1;margin:0}
+  .name-en{font-size:11px;letter-spacing:.28em;font-weight:700;color:var(--muted);text-transform:uppercase;margin-top:8px}
+  .badge{font-size:12px;font-weight:700;color:var(--navy);background:var(--navy-soft);border:1px solid var(--line);padding:7px 12px;border-radius:999px;white-space:nowrap}
+  .role{font-size:21px;font-weight:800;color:var(--navy);line-height:1.4;margin:18px 0 8px;letter-spacing:-.01em}
+  .summary{font-size:15.5px;color:var(--muted);margin:0;max-width:680px;line-height:1.75}
+  .contacts{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+  .contact{display:inline-flex;align-items:center;gap:8px;background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;min-height:36px}
+  .contact svg{width:16px;height:16px;flex:none;color:var(--navy)}
+  /* sections */
+  section{margin-top:22px;background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:30px 32px}
+  .sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+  .sec-kicker{font-size:11px;font-weight:800;letter-spacing:.22em;color:var(--accent);text-transform:uppercase}
+  .sec-title{font-size:20px;font-weight:800;letter-spacing:-.01em;margin:0}
+  .sec-sub{font-size:13.5px;color:var(--muted);margin:0}
+  .quote{font-family:"Noto Serif KR",serif;font-size:18px;line-height:1.8;font-weight:600;text-align:center;padding:6px 8px 20px;color:var(--ink)}
+  .quote strong{color:var(--navy)}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .mini-card{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:18px 16px}
+  .mini-card .tag{font-size:12px;font-weight:900;letter-spacing:.14em;color:var(--accent)}
+  .mini-card h3{margin:6px 0 6px;font-size:16px;font-weight:800}
+  .mini-card p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.6}
+  .mini-card .en{font-size:12px;color:var(--muted);margin-top:8px;font-weight:600}
+  .stat-card{background:var(--navy);color:#fff;border-radius:14px;padding:20px 18px}
+  @media (prefers-color-scheme: dark){ .stat-card{background:#1e3a56} }
+  .stat-card .big{font-size:19px;font-weight:800;line-height:1.45}
+  .stat-card .big em{font-style:normal;font-size:24px}
+  .stat-card p{margin:6px 0 0;font-size:13.5px;color:rgba(255,255,255,.82);line-height:1.6}
+  .value-list{list-style:none;margin:0;padding:0;display:grid;gap:0}
+  .value-list li{display:flex;gap:12px;padding:13px 2px;border-bottom:1px solid var(--line);font-size:15px;line-height:1.7}
+  .value-list li:last-child{border-bottom:0}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none;margin-top:9px}
+  /* timeline */
+  .timeline{position:relative;margin-left:6px;padding-left:26px}
+  .timeline::before{content:"";position:absolute;left:5px;top:8px;bottom:8px;width:2px;background:var(--line)}
+  .job{position:relative;padding:0 0 26px}
+  .job:last-child{padding-bottom:2px}
+  .job::before{content:"";position:absolute;left:-26px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--card);border:3px solid var(--navy);z-index:1}
+  .job-date{font-size:12.5px;font-weight:800;letter-spacing:.04em;color:var(--accent)}
+  .job h3{margin:4px 0 8px;font-size:16.5px;font-weight:800;line-height:1.5}
+  .job h3 span{color:var(--muted);font-weight:600;font-size:14.5px}
+  .job ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px;line-height:1.7}
+  .job ul li{margin:2px 0}
+  .job ul li::marker{color:var(--accent)}
+  /* leadership */
+  .lead{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .lead-card{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--card2)}
+  .lead-num{font-size:28px;font-weight:900;color:var(--navy-soft);line-height:1;-webkit-text-stroke:1px var(--accent);color:transparent}
+  @media (prefers-color-scheme: dark){ .lead-num{-webkit-text-stroke:1px var(--accent)} }
+  .lead-card h3{margin:8px 0 8px;font-size:15.5px;font-weight:800;line-height:1.5}
+  .lead-card ul{margin:0;padding-left:17px;font-size:13.8px;color:var(--muted);line-height:1.7}
+  /* table */
+  table{width:100%;border-collapse:collapse;font-size:14.5px}
+  th,td{text-align:left;vertical-align:top;padding:14px 14px;border-bottom:1px solid var(--line)}
+  tr:last-child th,tr:last-child td{border-bottom:0}
+  th{width:150px;font-weight:800;color:var(--navy);white-space:nowrap;background:var(--card2)}
+  td{color:var(--ink);line-height:1.75}
+  .exec{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border:none}
+  @media (prefers-color-scheme: dark){ .exec{background:linear-gradient(135deg,#1e3a56,#162c44)} }
+  .exec .sec-kicker{color:#9ec3e6}
+  .exec blockquote{margin:0;font-family:"Noto Serif KR",serif;font-size:19px;line-height:1.85;font-weight:700;text-align:center;padding:8px 4px 4px}
+  .target-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .target-list li{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;font-weight:600;display:flex;gap:10px;align-items:flex-start;line-height:1.6}
+  .target-list li::before{content:"✓";color:var(--accent);font-weight:900;flex:none}
+  .footnote{margin:16px 0 0;font-size:13px;color:var(--muted);text-align:center}
+
+  .role-sub{font-size:16.5px;font-weight:700;color:var(--ink);line-height:1.45;margin:2px 0 8px}
+  .badges{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+  .badge-ai{color:#fff;background:var(--navy);border-color:var(--navy)}
+  @media (prefers-color-scheme: dark){ .badge-ai{color:#0f1720;background:var(--navy);border-color:var(--navy)} }
+  .ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .ai-card{background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:20px 18px}
+  .ai-card .tag{font-size:11px;font-weight:900;letter-spacing:.14em;color:var(--accent);text-transform:uppercase}
+  .ai-card h3{margin:7px 0 8px;font-size:16.5px;font-weight:800;line-height:1.45}
+  .ai-card p{margin:0;font-size:14px;color:var(--muted);line-height:1.7}
+  .ai-card p strong{color:var(--ink)}
+  .ai-card-featured{background:var(--navy);border-color:var(--navy);color:#fff}
+  .ai-card-featured .tag{color:#9ec3e6}
+  .ai-card-featured h3{color:#fff}
+  .ai-card-featured p{color:rgba(255,255,255,.86)}
+  .ai-card-featured p strong{color:#fff}
+  .ai-card-wide{grid-column:1/-1}
+  .ai-card ul{margin:0;padding-left:17px;font-size:14px;color:var(--muted);line-height:1.75}
+  .ai-card ul li{margin:3px 0}
+  .ai-card ul li::marker{color:var(--accent)}
+  .ai-card ul strong{color:var(--ink)}
+  @media (prefers-color-scheme: dark){ .ai-card-featured{background:#1e3a56;border-color:#2c4f73} }
+  .tool-cat{margin-top:22px}
+  .tool-cat:first-of-type{margin-top:4px}
+  .tool-cat-head{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .tool-cat-head .num{font-size:11px;font-weight:900;letter-spacing:.08em;color:#fff;background:var(--navy);border-radius:999px;padding:4px 9px;white-space:nowrap}
+  .tool-cat-head h3{margin:0;font-size:15px;font-weight:800;letter-spacing:-.01em}
+  .tool-cat-head p{margin:0;font-size:12.5px;color:var(--muted)}
+  .tool-cat-head .line{flex:1;height:1px;background:var(--line)}
+  .tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .tool{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:14px 14px 12px}
+  .tool .tname{font-size:15px;font-weight:800;line-height:1.35}
+  .tool .tdesc{font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:4px}
+  .tool .tstat{font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--accent);margin-top:8px;text-transform:uppercase}
+  .method-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .method{background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .method .mname{font-size:14.5px;font-weight:800;line-height:1.4}
+  .method .mdesc{font-size:12.8px;color:var(--muted);line-height:1.6;margin-top:4px}
+  .edu-record{margin-top:22px;padding:18px 20px;border:1px dashed var(--line);border-radius:14px;background:transparent}
+  .edu-record .edu-label{font-size:11px;font-weight:800;letter-spacing:.18em;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+  .edu-record p{margin:0;font-size:13px;color:var(--muted);line-height:1.7}
+  .edu-record p strong{color:var(--ink);font-weight:700}
+  @media (max-width:720px){ .ai-grid,.tool-grid,.method-grid{grid-template-columns:1fr} .badges{justify-content:flex-start} .tool-cat-head{flex-wrap:wrap} .tool-cat-head .line{display:none} }
+  @media (min-width:721px) and (max-width:860px){ .tool-grid{grid-template-columns:1fr 1fr} }
+  .print-btn{display:block;margin:22px auto 0;background:var(--navy);color:#fff;border:0;border-radius:999px;padding:12px 26px;font-size:14px;font-weight:700;cursor:pointer;min-height:44px;font-family:inherit}
+  @media (max-width:720px){
+    .wrap{padding:14px 10px 40px}
+    .hero{padding:28px 20px 22px}
+    .name{font-size:34px}
+    .role{font-size:18px}
+    section{padding:24px 18px}
+    .grid4,.grid2,.lead,.target-list{grid-template-columns:1fr}
+    th{width:110px;white-space:normal}
+    th,td{padding:12px 10px}
+    .quote,.exec blockquote{font-size:16.5px}
+  }
+  @media print{
+    :root{--bg:#fff;--card:#fff;--card2:#f8fafc;--ink:#17202b;--muted:#44546a;--line:#dbe3ec;--navy:#1f4e79;--navy2:#163a5c;--navy-soft:#eaf1f7;--accent:#2e75b6;--shadow:none}
+    body{background:#fff}
+    .wrap{max-width:100%;padding:0}
+    .hero,section{box-shadow:none;break-inside:avoid;border-radius:12px}
+    section{margin-top:14px}
+    .print-btn{display:none}
+    .stat-card{background:#1f4e79 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .exec{background:#1f4e79 !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .job,.lead-card,.mini-card,.ai-card,.tool,.method{break-inside:avoid}
+    .edu-record{border-color:#dbe3ec}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 1. HEADER -->
+  <header class="hero">
+    <div class="hero-top">
+      <div>
+        <h1 class="name">김 상 훈</h1>
+        <div class="name-en">Kim Sanghoon · AI Agent Leader · B2B Business Leader</div>
+      </div>
+      <div class="badges"><span class="badge badge-ai">AI 에이전트 리더 · AI 활용 컨설턴트</span><span class="badge">약 30년 B2B 비즈니스 경력</span></div>
+    </div>
+    <p class="role">AI 에이전트 리더 · AI 활용 컨설턴트</p>
+    <p class="role-sub">성과를 만드는 Sales · Marketing · Enablement 통합형 리더</p>
+    <p class="summary">AI 에이전트 팀을 직접 운영하며 창작·영상·업무 자동화에 AI를 실전 적용하는 리더입니다. 프롬프트 설계와 바이브코딩으로 웹서비스를 기획부터 배포까지 만들어 본 실습 경험을 더해, 현장 영업에서 시작해 전략마케팅, 조직육성, 대형고객, 제휴사업, 영업기획까지 연결해 온 약 30년의 B2B 비즈니스 경력을 AI 활용 역량과 결합합니다.</p>
+    <div class="contacts">
+      <span class="contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>1970.11.19</span>
+      <a class="contact" href="tel:010-2273-3456"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.5 2.9.7a2 2 0 0 1 1.6 2z"/></svg>010-2273-3456</a>
+      <a class="contact" href="mailto:fujikims@naver.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>fujikims@naver.com</a>
+    </div>
+  </header>
+
+  <!-- 2. AI CORE COMPETENCIES -->
+  <section>
+    <div class="sec-head"><span class="sec-kicker">AI Core Competencies</span><h2 class="sec-title">AI 핵심 역량</h2><p class="sec-sub">AI를 직접 운영하고, 만들고, 배포까지 연결하는 실전형 리더</p></div>
+    <div class="ai-grid">
+      <div class="ai-card"><div class="tag">AI Agent Team · MCP</div><h3>AI 에이전트 팀 운영</h3><p><strong>E.O.S Works 대표</strong>로서 총괄 AI 에이전트와 세계관·작가·편집·마케팅 등 전문 팀 체제로 <strong>30년 연대기 소설 유니버스</strong> 창작을 운영합니다. MCP와 AI 에이전트 운영 방식을 실습하며 기획·구현·검토·운영으로 역할을 나눠 협업하는 구조를 직접 다루고 있습니다.</p></div>
+      <div class="ai-card"><div class="tag">AI Video · Contest</div><h3>AI 영상 제작 · 공모전</h3><p>생성형 AI 영상으로 공모전에 직접 출품했습니다. <strong>한국세라믹기술원 AI 영상 공모전 제출</strong>, <strong>부여군 홍보영상 공모전 제출</strong> 등 기획·제작·출품 전 과정을 AI 도구로 수행했습니다.</p></div>
+      <div class="ai-card"><div class="tag">Prompt Design</div><h3>프롬프트 설계 · AI 협업</h3><p>역할·맥락·작업·제약·출력형식의 <strong>5부분 구조로 프롬프트를 설계</strong>하고, ChatGPT·Claude·Codex 등 AI 도구와 반복 협업하며 기획서·문서·콘텐츠 결과물을 만드는 방식을 실습하고 있습니다.</p></div>
+      <div class="ai-card ai-card-featured"><div class="tag">Vibe Coding · Web Service</div><h3>바이브코딩 — 말로 설계하고 AI로 구현하는 웹서비스 제작</h3><p>아이디어를 <strong>PRD 기획서</strong>로 정리하는 단계부터 AI와 함께 화면·기능을 구현하고, GitHub Pages·Cloudflare Pages·Vercel로 <strong>배포하는 전 과정</strong>을 실습했습니다. Supabase 연동과 AI API 연결 구조까지 다루며, 기획에서 공개까지 이어지는 제작 흐름을 경험하고 있습니다.</p></div>
+      <div class="ai-card ai-card-wide"><div class="tag">Writing · Publishing</div><h3>창작 · 출판 — SF 소설 「타르타로스 너머」</h3><ul><li><strong>SF 소설 「타르타로스 너머(Beyond Tartaros)」</strong> — 동아사이언스 SF스토리 공모전 출품 (2026년 11월 제출 완료, 결과 발표 대기 중)</li><li><strong>노벨피아 연재</strong> — 「타르타로스 너머」 1~20화 연재 (우주최강 공모전)</li><li><strong>E.O.S Works 대표</strong> — 30년 연대기 소설 유니버스 기획·운영, 필명 <strong>‘한결’</strong>로 활동</li></ul></div>
+    </div>
+  </section>
+
+  <!-- 3. AI TOOLS & STACK -->
+  <section>
+    <div class="sec-head"><span class="sec-kicker">AI Tools &amp; Stack</span><h2 class="sec-title">활용 도구 · 기술 스택</h2><p class="sec-sub">창작·업무·웹서비스 제작 실습에서 직접 다루는 도구들</p></div>
+
+    <div class="tool-cat">
+      <div class="tool-cat-head"><span class="num">01</span><h3>AI 도구 · 에이전트</h3><p>기획부터 제작까지</p><span class="line"></span></div>
+      <div class="tool-grid">
+        <div class="tool"><div class="tname">ChatGPT</div><div class="tdesc">기획 · 문서 · 프롬프트 설계와 업무 지원</div><div class="tstat">활용 중</div></div>
+        <div class="tool"><div class="tname">Claude</div><div class="tdesc">Artifacts · Claude Code — 장문 창작·분석·제작 실습</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">Muse</div><div class="tdesc">AI 코딩 에이전트 · 코드 작성과 개발 자동화</div><div class="tstat">활용 중</div></div>
+        <div class="tool"><div class="tname">Manus AI</div><div class="tdesc">자율형 AI 에이전트 · 리서치와 결과물 제작</div><div class="tstat">활용 중</div></div>
+        <div class="tool"><div class="tname">Kling AI</div><div class="tdesc">AI 영상 생성 · 공모전 영상 제작</div><div class="tstat">활용 중</div></div>
+        <div class="tool"><div class="tname">GitHub Copilot</div><div class="tdesc">AI 페어 프로그래밍 · 코드 자동완성</div><div class="tstat">실습 중</div></div>
+      </div>
+    </div>
+
+    <div class="tool-cat">
+      <div class="tool-cat-head"><span class="num">02</span><h3>개발 도구 · 언어</h3><p>웹서비스를 만드는 기반</p><span class="line"></span></div>
+      <div class="tool-grid">
+        <div class="tool"><div class="tname">VS Code</div><div class="tdesc">개발 에디터 · AI 확장 기반 코딩 환경</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">HTML · CSS · JavaScript</div><div class="tdesc">웹 화면 구조 · 스타일 · 동작 구현 기초</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">React · Vite</div><div class="tdesc">컴포넌트 기반 웹앱 제작 · 빠른 개발 환경</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">Node.js</div><div class="tdesc">개발 실행 환경 · 패키지 기반 프로젝트 운영</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">Python</div><div class="tdesc">프로그래밍 기초와 자동화 스크립트</div><div class="tstat">학습 중</div></div>
+        <div class="tool"><div class="tname">Git</div><div class="tdesc">버전 관리 · 변경 이력 관리 기초</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">Figma</div><div class="tdesc">UI 디자인 · 프로토타이핑 협업</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">Android Studio</div><div class="tdesc">안드로이드 앱 개발 · 에뮬레이터 실습</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">AI 에이전트 운영</div><div class="tdesc">총괄 에이전트 중심의 전문 팀 체제 운영</div><div class="tstat">운영 중</div></div>
+      </div>
+    </div>
+
+    <div class="tool-cat">
+      <div class="tool-cat-head"><span class="num">03</span><h3>협업 · 배포 · 데이터</h3><p>만든 것을 공개하고 저장하는 단계</p><span class="line"></span></div>
+      <div class="tool-grid">
+        <div class="tool"><div class="tname">GitHub</div><div class="tdesc">코드 저장소 · 버전 관리와 프로젝트 협업</div><div class="tstat">활용 중</div></div>
+        <div class="tool"><div class="tname">GitHub Desktop</div><div class="tdesc">그래픽 환경에서 Git 협업·동기화 실습</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">GitHub Pages</div><div class="tdesc">정적 웹페이지 배포 실습</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">Cloudflare Pages</div><div class="tdesc">웹서비스 배포 · 도메인 연결 실습</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">Vercel</div><div class="tdesc">프론트엔드 배포 · 미리보기 배포 실습</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">Supabase</div><div class="tdesc">테이블 설계 · RLS 권한 설계 기반 데이터 연동</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">localStorage</div><div class="tdesc">브라우저 내 데이터 저장 실습</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">서버리스 API</div><div class="tdesc">서버 없이 AI API를 연동하는 구조 설계</div><div class="tstat">실습 중</div></div>
+        <div class="tool"><div class="tname">환경변수 (.env)</div><div class="tdesc">API 키 분리 보관 · 보안 키 관리 실습</div><div class="tstat">실습 중</div></div>
+      </div>
+    </div>
+
+    <div class="tool-cat">
+      <div class="tool-cat-head"><span class="num">04</span><h3>방법론 · 설계 역량</h3><p>도구를 일하는 방식으로 연결하는 법</p><span class="line"></span></div>
+      <div class="method-grid">
+        <div class="method"><div class="mname">프롬프트 설계</div><div class="mdesc">역할 · 맥락 · 작업 · 제약 · 출력형식 5부분으로 나누어 AI에게 정확히 지시하는 설계 방식</div></div>
+        <div class="method"><div class="mname">PRD 기획서 작성</div><div class="mdesc">만들 웹서비스의 목적·사용자·기능·화면을 먼저 문서로 정의하는 기획 단계</div></div>
+        <div class="method"><div class="mname">바이브코딩</div><div class="mdesc">말로 설계하고 AI로 구현하는 제작 방식 — 설계와 구현을 오가며 빠르게 결과물을 완성</div></div>
+        <div class="method"><div class="mname">AI API 연동 설계</div><div class="mdesc">외부 AI 기능을 웹서비스에 연결하는 구조와 키 관리 방식을 함께 설계</div></div>
+        <div class="method"><div class="mname">MCP · AI 에이전트 운영</div><div class="mdesc">기획·구현·검토·운영으로 역할을 나눈 에이전트 협업 구조를 이해하고 적용</div></div>
+        <div class="method"><div class="mname">반복 업무 자동화 설계</div><div class="mdesc">반복되는 업무를 AI와 도구로 자동화할 수 있게 흐름을 구조화하는 설계</div></div>
+        <div class="method"><div class="mname">QA 테스트 · 보안 점검</div><div class="mdesc">배포 전 동작을 검증하고, 키 노출·권한 등 보안 항목을 함께 확인하는 마무리 단계</div></div>
+        <div class="method"><div class="mname">웹서비스 제작 전체 흐름</div><div class="mdesc">기획(PRD) → 구현 → 데이터 연동 → 배포 → 점검까지 한 번에 이어지는 실습 흐름</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CORE VALUE PROPOSITION -->
+  <section>
+    <div class="sec-head"><span class="sec-kicker">Core Value Proposition</span><h2 class="sec-title">핵심 가치 제안</h2></div>
+    <ul class="value-list">
+      <li><span class="dot"></span><span>대형 고객 영업과 영업조직 관리 경험을 동시에 보유해 ‘현장 실행’과 ‘관리 체계’를 함께 설계</span></li>
+      <li><span class="dot"></span><span>마케팅 Staff와 Project Manager 경험을 바탕으로 시장분석 → 전략수립 → 상품/솔루션 도입 → 영업전개까지 연결</span></li>
+      <li><span class="dot"></span><span>X-SMAP Main Trainer 경험을 활용해 Strategy · Market · Account · Process 관점의 영업역량을 조직에 확산</span></li>
+      <li><span class="dot"></span><span>성과가 정체된 조직과 신규 사업에서 문제를 구조화하고 인력·채널·프로세스를 재정렬해 실행력을 회복</span></li>
+    </ul>
+  </section>
+  <!-- 5. SIGNATURE POSITIONING -->
+  <section>
+    <div class="sec-head"><span class="sec-kicker">Signature Positioning</span><h2 class="sec-title">시그니처 포지셔닝</h2></div>
+    <p class="quote">“영업을 잘하는 사람”이 아니라, <strong>시장·사람·프로세스를 연결해 성과가 반복되게 만드는 사람</strong>으로 포지셔닝합니다.</p>
+    <div class="grid4">
+      <div class="mini-card"><div class="tag">SELL</div><h3>직접 영업</h3><p>대기업·중견기업·공공시장</p><p class="en">Direct Sales / Major Account</p></div>
+      <div class="mini-card"><div class="tag">STRATEGIZE</div><h3>전략 설계</h3><p>STP · 4P · PM · BTO</p><p class="en">시장개발 / 솔루션 도입</p></div>
+      <div class="mini-card"><div class="tag">SCALE</div><h3>조직 확장</h3><p>영업교육 · Trainer · CDP</p><p class="en">팀원육성 / 역량관리</p></div>
+      <div class="mini-card"><div class="tag">TRANSFORM</div><h3>사업 전환</h3><p>제휴 · Kiosk · MRO · Online</p><p class="en">부진조직 정상화 / Control Tower</p></div>
+    </div>
+  </section>
+  <!-- 6. CAREER HIGHLIGHTS -->
+  <section>
+    <div class="sec-head"><span class="sec-kicker">Career Highlights</span><h2 class="sec-title">숫자로 증명된 성과</h2></div>
+    <div class="grid2">
+      <div class="stat-card"><div class="big"><em>3년 연속</em> 강남영업부 목표 달성</div><p>성장률 30% · GP 우수팀</p></div>
+      <div class="stat-card"><div class="big">연간 약 <em>100억</em> 산업영업팀 신규/사후 규모</div><p>목표 100% · 성장률 20%</p></div>
+      <div class="stat-card"><div class="big">연간 약 <em>70억</em> 강남영업부 신규/사후 규모</div><p>신규 40억 · 사후 30억</p></div>
+      <div class="stat-card"><div class="big">AP President Club <em>1998</em> 연간 영업 우수</div><p>분기·반기 우수 S/R 6회</p></div>
+    </div>
+  </section>
+  <!-- 7. PROFESSIONAL EXPERIENCE -->
+  <section>
+    <div class="sec-head"><span class="sec-kicker">Professional Experience</span><h2 class="sec-title">경력</h2><p class="sec-sub">경력을 ‘역할’이 아닌 ‘성과 흐름’으로</p></div>
+    <div class="timeline">
+      <article class="job"><div class="job-date">2023.03 – 2025.03</div><h3>한국후지필름비즈니스이노베이션 <span>| 영업본부 영업강화부 Planning</span></h3><ul><li>서울·수도권·Area 영업 전반의 실적관리 및 영업강화 Planning Manager</li><li>영업현황을 통합 관리하는 Control Tower 역할 수행</li></ul></article>
+      <article class="job"><div class="job-date">2021.04 – 2023.03</div><h3>한국후지필름비즈니스이노베이션 <span>| NMA Sales / Seoul XTI Sales</span></h3><ul><li>SK Group, 아시아나 Group, 신한은행 등 National Major Account Direct Sales</li><li>서울 본사 주요 고객 대상 XTI 영업 및 고객관리</li></ul></article>
+      <article class="job"><div class="job-date">2019.04 – 2021.03</div><h3>한국후지제록스 <span>| 시장개발팀장</span></h3><ul><li>AJ Networks, Douzone, KT, SamBo Com 등 New Channel Alliance 총괄</li><li>Kiosk Solution PM, MRO / Online Biz Sales, Inbound·Outbound Sales 운영</li><li>비영업부문 전환인력의 교육·배치·성과관리 체계 운영</li></ul></article>
+      <article class="job"><div class="job-date">2016.04 – 2019.03</div><h3>한국후지제록스 <span>| Marketing실 Account Service Manager</span></h3><ul><li>한화 Group, 아시아나 Group, SK Group 등 Major Account의 계약유지, 설치, 추가, 해지 및 Service &amp; Maintenance 전반 관리</li></ul></article>
+      <article class="job"><div class="job-date">2012.10 – 2016.03</div><h3>한국후지제록스 <span>| 전략마케팅실 Project Manager / BTO</span></h3><ul><li>대학교·초중고 학교시장 PM: 시장전략 수립 및 프로젝트 운영</li><li>STP, 4P Mix 기반 전략수립, 상품·솔루션 도입, 제휴업체 총괄</li><li>Big Deal 직접 영업지원 및 학교시장·Kiosk 개발 PM</li></ul></article>
+      <article class="job"><div class="job-date">2009.04 – 2012.09</div><h3>한국후지제록스 <span>| 강남영업부 팀장</span></h3><ul><li>서울 한강 이남 주요 권역 기업·관청 직판영업 조직 관리</li><li>3년 연속 영업목표 달성, 성장률 30%, GP 우수팀</li><li>2012년 기준 연간 약 70억 규모(신규 40억 / 사후 30억), 팀원육성 및 직접 영업지원</li></ul></article>
+      <article class="job"><div class="job-date">2008.04 – 2009.03</div><h3>한국후지제록스 <span>| 산업영업팀장</span></h3><ul><li>삼성·현대·금호아시아나·동원·대림·신세계·AK 등 대기업 본사/계열사 영업</li><li>영업목표 100% 달성, 성장률 20%, 연간 약 100억 규모(신규 40억 / 사후 60억)</li><li>부진 조직의 영업 실행력과 팀 역량을 재정비해 목표달성</li></ul></article>
+      <article class="job"><div class="job-date">2000.01 – 2008.03</div><h3>한국후지제록스 <span>| 마케팅실 영업력강화팀 대리·과장·팀장</span></h3><ul><li>영업인력 양성, 우수영업사원·PM 육성, 교육프로그램 개발·실시·평가</li><li>신입영업사원 채용·양성·배치 및 CDP 운영, 주요 대리점 영업력강화</li><li>X-SMAP(Strategy, Market, Account, Process) Master Trainer로 전사 프로그램 전개</li></ul></article>
+      <article class="job"><div class="job-date">1996.02 – 1999.12</div><h3>한국후지제록스 <span>| 강남·종로영업소 Direct Sales</span></h3><ul><li>신규시장 개척 및 주요고객 관리</li><li>1998 President Club 선정, 분기·반기 우수 S/R 6회, Demorama Contest 2년 연속 1위</li></ul></article>
+      <article class="job"><div class="job-date">1994.07 – 1996.01</div><h3>대신생명 <span>| 영업국 계장</span></h3><ul><li>12개 영업소 관리·지원, 주간·월간 실적 취합·분석, 소액대출 및 행정업무</li></ul></article>
+    </div>
+  </section>
+  <!-- 8. LEADERSHIP & DIFFERENTIATORS -->
+  <section>
+    <div class="sec-head"><span class="sec-kicker">Leadership &amp; Differentiators</span><h2 class="sec-title">차별화 근거</h2></div>
+    <div class="lead">
+      <div class="lead-card"><div class="lead-num">01</div><h3>현장형 영업 리더</h3><ul><li>Direct Sales로 커리어를 시작해 대기업·중견기업·공공기관·교육시장까지 폭넓은 B2B 영업 경험 보유</li><li>팀장으로서 목표·GP·신규·사후 실적을 관리하면서 핵심 Deal에는 직접 개입하는 플레이잉 리더 역할 수행</li></ul></div>
+      <div class="lead-card"><div class="lead-num">02</div><h3>전략을 실행으로 바꾸는 마케터</h3><ul><li>전략마케팅실 PM/BTO 경험을 통해 STP와 4P Mix를 실제 시장개발·상품도입·솔루션도입·제휴영업으로 연결</li><li>학교시장, Kiosk, New Channel Alliance 등 기존 영업의 경계를 넓히는 신규 사업 경험</li></ul></div>
+      <div class="lead-card"><div class="lead-num">03</div><h3>사람을 성과체계로 만드는 Enablement 인적역량강화리더</h3><ul><li>영업교육 담당과 팀장 경험을 바탕으로 채용·양성·배치·CDP·평가까지 영업인재 육성 전 과정 수행</li><li>Asia Pacific 기반 X-SMAP Trainer Certification을 취득하고 Strategy·Market·Account·Process 교육을 국내 전개</li></ul></div>
+      <div class="lead-card"><div class="lead-num">04</div><h3>문제조직을 정상화하는 Transformation 리더</h3><ul><li>실적이 부진한 산업영업 조직에서 추진력과 영업인력 역량강화를 통해 목표달성과 성장 회복</li><li>영업강화 Planning에서는 서울·수도권·Area를 아우르는 Control Tower 역할로 전체 영업 실행을 지원</li></ul></div>
+    </div>
+  </section>
+  <!-- 9. AWARDS -->
+  <section>
+    <div class="sec-head"><span class="sec-kicker">Awards · Certifications · Education</span><h2 class="sec-title">수상 · 자격 · 학력</h2></div>
+    <table>
+      <tr><th>수상 / 선발</th><td>President Club(1998) · 사내 우수사원 표창(2004) · Core Leader 1기(2005) · Demorama Contest 1위(1997·1998)</td></tr>
+      <tr><th>자격 / 전문교육</th><td>CCNA(Cisco, 2006) · MCP(Microsoft, 2006) · X-SMAP Train-the-Trainer(2005) · Cyber MBA(2006) · Oracle CRM(2007) · Project Management 과정</td></tr>
+      <tr><th>학력 / 리더십</th><td>단국대학교 정보통신대학원 정보통신 전공 졸업(2007) · 상지대학교 졸업/단과대 수석(1992) · ROTC 30기, 육군 제8사단 소대장</td></tr>
+    </table>
+  </section>
+  <!-- 10. EXECUTIVE SUMMARY -->
+  <section class="exec">
+    <div class="sec-head"><span class="sec-kicker">Executive Summary</span><h2 class="sec-title" style="color:#fff">지원서 상단에 남길 한 문장</h2></div>
+    <blockquote>“영업의 현장을 알고, 마케팅으로 방향을 만들며, 교육과 프로세스로 조직의 성과를 반복 가능하게 만드는 B2B 비즈니스 리더”</blockquote>
+  </section>
+  <!-- 11. TARGET POSITIONING -->
+  <section>
+    <div class="sec-head"><span class="sec-kicker">Target Positioning</span><h2 class="sec-title">이 이력서가 강하게 맞는 포지션</h2></div>
+    <ul class="target-list">
+      <li>AI 에이전트 리더 / AI 활용 컨설팅</li>
+      <li>AI 웹서비스 기획 / 바이브코딩 기반 프로토타입 제작</li>
+      <li>영업기획 / 영업혁신 / Sales Enablement / 영업교육 리더</li>
+      <li>B2B 전략마케팅 / 사업개발 / Channel Alliance / Project Manager</li>
+      <li>대기업·중견기업 Major Account Sales / 영업조직 관리자</li>
+      <li>중견·중소기업의 영업체계 구축, 조직 정상화, 신규사업 전개 역할</li>
+    </ul>
+    <p class="footnote">※ 상세 고객사 및 프로젝트 실적은 면접 시 직무 연관성이 높은 사례 중심으로 설명 가능합니다.</p>
+  </section>
+
+  <!-- EDUCATION RECORD -->
+  <div class="edu-record">
+    <div class="edu-label">Education · Training Record</div>
+    <p><strong>교육·실습 기록</strong> — 상상우리 2026 파트너스 과정 · 프롬프트 &amp; 바이브코딩 입문 「말로 설계하고 AI로 구현하는 나만의 웹 서비스」 (강남 디지털 일자리센터, 2026.11.23–26 · 4일 16시간)</p>
+  </div>
+
+</div>
+</body>
+</html>
